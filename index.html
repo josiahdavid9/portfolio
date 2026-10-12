@@ -4,1259 +4,548 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<meta name="description" content="David Latham - Graphic designer portfolio featuring selected work in brand identity, print, signage and web.">
-<title>David Latham | Graphic Designer</title>
+<meta name="description" content="David Latham - Graphic designer and digital content creator. Brand identity, print, signage and accessible web for community organisations.">
+<title>David Latham | Graphic Designer & Digital Content Creator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #FFFFFF;
-  --ink: #111111;
-  --muted: #5C5C5C;
-  --line: #E5E5E5;
-  --soft: #F6F6F5;
-  --sage: #cad2c5;
-  --accent: #52796f;
-  --slate: #2f3e46;
-  --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --pad: clamp(1.25rem, 4vw, 3.5rem);
-  --max: 1400px;
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-::selection { background: var(--sage); color: var(--ink); }
-h1, h2, h3, h4, p, figure, dl, dd, ul { margin: 0; padding: 0; }
-ul { list-style: none; }
-img { display: block; max-width: 100%; height: auto; }
-button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
-a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: var(--pad);
-  background: rgba(255, 255, 255, 0.88);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-  transition: all 0.4s ease;
-}
-
-.brand {
-  font-weight: 800;
-  font-size: 1.125rem;
-  letter-spacing: -0.03em;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.brand__sub {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding-left: 0.75rem;
-  border-left: 1px solid var(--line);
-}
-
-.nav__links {
-  display: flex;
-  gap: clamp(1rem, 2.5vw, 2rem);
-  align-items: center;
-}
-
-.nav__link {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.5rem 0.25rem;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--ink);
-  transition: width 0.3s ease;
-}
-
-.nav__link.is-active::after, .nav__link:hover::after {
-  width: 100%;
-}
-
-.slider-container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.slider-container::-webkit-scrollbar { display: none; }
-
-.slide {
-  min-width: 100vw;
-  width: 100vw;
-  height: 100vh;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  position: relative;
-  overflow-y: auto;
-  padding-top: 72px;
-  padding-bottom: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide__inner {
-  width: 100%;
-  max-width: var(--max);
-  margin-inline: auto;
-  padding-inline: var(--pad);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.slide--hero {
-  background: var(--bg);
-}
-
-.hero__content {
-  max-width: 1100px;
-}
-
-.hero__title {
-  font-size: clamp(3rem, 9.5vw, 8rem);
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  line-height: 0.92;
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.hero__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  align-items: start;
-  border-top: 1px solid var(--line);
-  padding-top: 2rem;
-}
-
-.hero__role {
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.hero__role span {
-  display: block;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--muted);
-  margin-top: 0.25rem;
-}
-
-.hero__desc {
-  font-size: 1.0625rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.hero__action {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1.75rem;
-  background: var(--ink);
-  color: var(--bg);
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 0.875rem;
-  letter-spacing: 0.02em;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -10px rgba(0,0,0,0.2);
-}
-
-.slide--project {
-  background: var(--soft);
-}
-
-.project__layout {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-  height: 100%;
-  max-height: 720px;
-}
-
-.project__visual {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 380px;
-  max-height: 600px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px -15px rgba(0,0,0,0.12);
-  background: #EAEAEA;
-  cursor: pointer;
-  group: hover;
-}
-
-.project__visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s var(--ease);
-}
-
-.project__visual:hover img {
-  transform: scale(1.04);
-}
-
-.project__visual-badge {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  background: rgba(17, 17, 17, 0.85);
-  color: #FFF;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  backdrop-filter: blur(8px);
-}
-
-.project__details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.tag {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.65rem;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  color: var(--ink);
-}
-
-.project__title {
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 1rem;
-}
-
-.project__tagline {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.project__summary {
-  font-size: 0.9375rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  max-width: 50ch;
-}
-
-.project__meta-row {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-}
-
-.meta-item dt {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-}
-
-.meta-item dd {
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-top: 0.25rem;
-}
-
-.slide--about {
-  background: var(--sage);
-  color: var(--ink);
-}
-
-.about__grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-
-.about__portrait {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  aspect-ratio: 4/5;
-  max-height: 500px;
-}
-
-.about__portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about__title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-}
-
-.about__text {
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  color: #2F3E46;
-  margin-bottom: 1.5rem;
-}
-
-.about__skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.about__skill-chip {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8125rem;
-  font-weight: 600;
-}
-
-.slide--contact {
-  background: var(--slate);
-  color: #FFFFFF;
-}
-
-.contact__content {
-  text-align: center;
-  max-width: 760px;
-  margin-inline: auto;
-}
-
-.contact__title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 1.5rem;
-}
-
-.contact__text {
-  font-size: 1.25rem;
-  color: var(--sage);
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-}
-
-.contact__email {
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  font-weight: 700;
-  color: #FFF;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 0.25rem;
-  transition: color 0.3s ease;
-}
-
-.contact__email:hover {
-  color: var(--sage);
-}
-
-.footer-meta {
-  margin-top: 3rem;
-  font-size: 0.8125rem;
-  color: var(--sage);
-  opacity: 0.8;
-}
-
-.controls-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-inline: var(--pad);
-  background: rgba(255, 255, 255, 0.9);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid var(--line);
-}
-
-.slide-counter {
-  font-weight: 800;
-  font-size: 0.9375rem;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.slide-counter__title {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--muted);
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .slide-counter__title { display: inline-block; }
-}
-
-.slide-dots {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--line);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  padding: 0;
-}
-
-.dot.is-active {
-  background: var(--ink);
-  width: 24px;
-  border-radius: 12px;
-}
-
-.nav-arrows {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.arrow-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  transition: all 0.25s ease;
-}
-
-.arrow-btn:hover:not(:disabled) {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
-}
-
-.arrow-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.arrow-btn svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2px;
-}
-
-.drawer-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 200;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.drawer-backdrop.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: clamp(320px, 88vw, 780px);
-  height: 100vh;
-  z-index: 210;
-  background: var(--bg);
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
-  transform: translateX(100%);
-  transition: transform 0.45s var(--ease);
-  display: flex;
-  flex-direction: column;
-}
-
-.drawer.is-open {
-  transform: translateX(0);
-}
-
-.drawer__header {
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-}
-
-.drawer__close-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.drawer__close-btn:hover {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
-}
-
-.drawer__body {
-  padding: 2.5rem 2rem;
-  overflow-y: auto;
-  flex: 1;
-}
-
-.drawer__title {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-
-.drawer__lede {
-  font-size: 1.125rem;
-  color: var(--muted);
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.drawer__meta-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem 2rem;
-  padding-block: 1.5rem;
-  border-block: 1px solid var(--line);
-  margin-bottom: 2rem;
-}
-
-.drawer__meta-grid dt {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-}
-
-.drawer__meta-grid dd {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  margin-top: 0.2rem;
-}
-
-.drawer__sections {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-.drawer__section h4 {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 0.5rem;
-}
-
-.drawer__section p {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--ink);
-}
-
-.drawer__gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.drawer__gallery figure {
-  border-radius: 6px;
-  overflow: hidden;
-  background: var(--soft);
-}
-
-.drawer__gallery img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.drawer__gallery figcaption {
-  padding: 0.6rem 0.25rem 0;
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-
-@media (max-width: 768px) {
-  html, body {
-    overflow-y: auto;
-    height: auto;
-  }
-
-  .slider-container {
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    overflow-x: visible;
-    overflow-y: visible;
-    scroll-snap-type: none;
-  }
-
-  .slide {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    padding-top: 90px;
-    padding-bottom: 100px;
-    scroll-snap-align: none;
-  }
-
-  .project__layout, .about__grid {
-    grid-template-columns: 1fr;
-    max-height: none;
-  }
-
-  .project__visual {
-    min-height: 280px;
-    max-height: 380px;
-  }
-
-  .controls-bar {
-    position: fixed;
-  }
-
-  .nav-arrows {
-    display: none;
-  }
+:root{--bg:#fff;--ink:#111;--muted:#5c5c5c;--line:#e5e5e5;--soft:#f6f6f5;--sage:#cad2c5;--accent:#52796f;--slate:#2f3e46;--font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;--pad:clamp(1.25rem,4vw,3.5rem);--max:1400px;--ease:cubic-bezier(.2,.7,.2,1)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--sage)}
+h1,h2,h3,h4,p,figure,dl,dd,ul{margin:0;padding:0}
+ul{list-style:none}img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.header,.controls-bar{position:fixed;left:0;right:0;height:72px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding-inline:var(--pad);background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.header{top:0;border-bottom:1px solid var(--line)}
+.controls-bar{bottom:0;border-top:1px solid var(--line)}
+.brand{font-weight:800;font-size:1.125rem;letter-spacing:-.03em;display:flex;align-items:center;gap:.75rem}
+.brand__sub{font-size:.75rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;padding-left:.75rem;border-left:1px solid var(--line)}
+.nav__links{display:flex;gap:clamp(1rem,2.5vw,2rem)}
+.nav__link{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .25rem;position:relative}
+.nav__link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .35s var(--ease)}
+.nav__link.is-active::after,.nav__link:hover::after{width:100%}
+.progress{position:absolute;top:-1px;left:0;height:2px;background:var(--accent);width:0;transition:width .5s var(--ease)}
+.slider-container{width:100vw;height:100vh;height:100dvh;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.slider-container::-webkit-scrollbar{display:none}
+.slide{min-width:100vw;width:100vw;height:100vh;height:100dvh;scroll-snap-align:start;flex-shrink:0;position:relative;overflow-y:auto;padding:72px 0;display:flex;align-items:center}
+.slide__inner{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);display:flex;flex-direction:column;justify-content:center;min-height:100%}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.slide.is-current .reveal{opacity:1;transform:none}
+.slide--hero{background:var(--bg)}
+.hero__layout{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:.75rem}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--accent)}
+.hero__title{font-size:clamp(2.75rem,6.5vw,5.5rem);font-weight:800;letter-spacing:-.05em;line-height:.92;margin-bottom:clamp(1.25rem,2.5vw,2rem)}
+.hero__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;align-items:start;border-top:1px solid var(--line);padding-top:2rem}
+.hero__role{font-size:1.25rem;font-weight:700;line-height:1.3}
+.hero__role span{display:block;font-size:.9375rem;font-weight:500;color:var(--muted);margin-top:.25rem}
+.hero__desc{font-size:1.0625rem;color:var(--muted);line-height:1.6}
+.hero__portrait,.about__portrait{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 40px -15px rgba(0,0,0,.15);aspect-ratio:4/5;max-height:480px;background:var(--soft)}
+.hero__portrait img,.about__portrait img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.hero__portrait:hover img,.about__portrait:hover img{transform:scale(1.03)}
+.btn{display:inline-flex;align-items:center;gap:.75rem;padding:.9rem 1.75rem;background:var(--ink);color:var(--bg);border-radius:999px;font-weight:700;font-size:.875rem;letter-spacing:.02em;transition:all .3s var(--ease)}
+.btn svg{transition:transform .3s var(--ease)}
+.btn:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 10px 20px -10px rgba(0,0,0,.25)}
+.btn:hover svg{transform:translateX(4px)}
+.slide--project{background:var(--soft)}
+.project__layout{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;max-height:720px}
+.project__visual{position:relative;width:100%;height:min(60vh,560px);min-height:340px;border-radius:24px;overflow:hidden;box-shadow:0 24px 48px -18px rgba(0,0,0,.18);background:#eaeaea;cursor:pointer}
+.project__visual img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.project__visual:hover img{transform:scale(1.05)}
+.project__visual::after{content:'View case study \2192';position:absolute;right:1.25rem;bottom:1.25rem;background:#fff;padding:.55rem 1rem;border-radius:999px;font-size:.75rem;font-weight:700;opacity:0;transform:translateY(8px);transition:all .35s var(--ease)}
+.project__visual:hover::after,.project__visual:focus-visible::after{opacity:1;transform:none}
+.project__visual-badge{position:absolute;top:1.25rem;left:1.25rem;z-index:2;background:rgba(17,17,17,.85);color:#fff;padding:.4rem .8rem;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+.tag{font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .7rem;background:var(--bg);border:1px solid var(--line);border-radius:999px}
+.project__title{font-size:clamp(2.25rem,4vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem}
+.project__tagline{font-size:1.125rem;font-weight:600;margin-bottom:1rem;line-height:1.4}
+.project__summary{font-size:.9375rem;color:var(--muted);line-height:1.65;margin-bottom:1.75rem;max-width:50ch}
+.project__meta-row{display:flex;gap:2rem;margin-bottom:1.75rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.meta-item dt,.cs-meta-grid dt{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.meta-item dd{font-size:.875rem;font-weight:600;margin-top:.25rem}
+.slide--about{background:var(--sage)}
+.about__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.about__title{font-size:clamp(2rem,3.5vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.25rem}
+.about__text{font-size:1.0625rem;line-height:1.65;color:var(--slate);margin-bottom:1.1rem;max-width:62ch}
+.about__skills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.about__skill-chip{background:rgba(255,255,255,.7);padding:.45rem .9rem;border-radius:999px;font-size:.8125rem;font-weight:600;transition:background .25s}
+.about__skill-chip:hover{background:#fff}
+.slide--contact{background:var(--slate);color:#fff}
+.contact__content{text-align:center;max-width:760px;margin-inline:auto}
+.contact__title{font-size:clamp(2.5rem,6vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:1.5rem}
+.contact__text{font-size:1.25rem;color:var(--sage);line-height:1.6;margin-bottom:2.25rem}
+.contact__email{font-size:clamp(1.15rem,3vw,2rem);font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:.25rem;transition:color .3s;word-break:break-word}
+.contact__email:hover{color:var(--sage)}
+.btn--light{background:#fff;color:var(--ink);margin-top:2rem}
+.footer-meta{margin-top:3rem;font-size:.8125rem;color:var(--sage);opacity:.8}
+.slide-counter{font-weight:800;font-size:.9375rem;letter-spacing:.05em;display:flex;align-items:center;gap:.75rem;min-width:150px}
+.slide-counter__title{font-size:.8125rem;font-weight:600;color:var(--muted);display:none}
+@media(min-width:640px){.slide-counter__title{display:inline-block}}
+.slide-dots{display:flex;gap:.5rem;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:all .3s var(--ease);padding:0}
+.dot.is-active{background:var(--accent);width:24px;border-radius:12px}
+.nav-arrows{display:flex;gap:.5rem;min-width:150px;justify-content:flex-end}
+.arrow-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;background:var(--bg);transition:all .25s}
+.arrow-btn:hover:not(:disabled){background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.arrow-btn:disabled{opacity:.3;cursor:not-allowed}
+.arrow-btn svg{width:20px;height:20px;stroke-width:2px}
+.cs-overlay{position:fixed;inset:0;z-index:300;background:#000;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.cs-overlay.is-open{opacity:1;visibility:visible}
+.cs-bg-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}
+.cs-bg-image.is-fading{opacity:0}
+.cs-cap{position:absolute;top:1.6rem;left:2rem;z-index:310;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(17,17,17,.55);padding:.45rem .9rem;border-radius:999px;backdrop-filter:blur(8px)}
+.cs-close-btn{position:absolute;top:1.5rem;right:1.5rem;z-index:320;background:rgba(255,255,255,.92);padding:.65rem 1.25rem;border-radius:30px;font-size:.8125rem;font-weight:700;display:flex;align-items:center;gap:.5rem;box-shadow:0 10px 25px rgba(0,0,0,.3);transition:all .25s}
+.cs-close-btn:hover{background:#fff;transform:scale(1.05)}
+.cs-content-box{position:absolute;bottom:2rem;left:2rem;z-index:310;background:#fff;padding:2rem;border-radius:20px;width:min(540px,calc(100vw - 4rem));max-height:calc(100vh - 8rem);max-height:calc(100dvh - 8rem);overflow-y:auto;box-shadow:0 25px 50px -12px rgba(0,0,0,.4);transform:translateY(24px);opacity:0;transition:all .6s var(--ease) .1s}
+.cs-overlay.is-open .cs-content-box{transform:none;opacity:1}
+.cs-toggle{right:8.5rem}
+.cs-cap{transition:opacity .35s}
+.cs-overlay.is-clean .cs-content-box{opacity:0;transform:translateY(24px);pointer-events:none}
+.cs-overlay.is-clean .cs-cap{opacity:0}
+.cs-nav{position:absolute;bottom:1.75rem;left:50%;transform:translateX(-50%);z-index:310;display:none;gap:.6rem}
+.cs-overlay.is-clean .cs-nav{display:flex}
+.cs-nav button{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.3);transition:transform .2s}
+.cs-nav button:hover{transform:scale(1.08)}
+.cs-content-box::-webkit-scrollbar{width:6px}.cs-content-box::-webkit-scrollbar-thumb{background:#ddd;border-radius:3px}
+.cs-badge{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem;display:block}
+.cs-title{font-size:1.75rem;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5rem}
+.cs-lede{font-size:.9375rem;color:var(--muted);line-height:1.5;margin-bottom:1.25rem}
+.cs-meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem 1rem;padding-block:1rem;border-block:1px solid var(--line);margin-bottom:1.25rem}
+.cs-meta-grid dt{font-size:.625rem}.cs-meta-grid dd{font-size:.8125rem;font-weight:600;margin-top:.15rem}
+.cs-section{margin-bottom:1rem}
+.cs-section h4{font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem}
+.cs-section p{font-size:.875rem;line-height:1.6}
+.cs-list li{font-size:.875rem;line-height:1.5;padding-left:1.1rem;position:relative;margin-bottom:.35rem}
+.cs-list li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.cs-gallery-thumbs{display:flex;gap:.5rem;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);overflow-x:auto}
+.cs-thumb{width:64px;height:48px;border-radius:8px;overflow:hidden;border:2px solid transparent;flex-shrink:0;opacity:.65;transition:all .2s}
+.cs-thumb.is-active,.cs-thumb:hover{opacity:1;border-color:var(--accent)}
+.cs-thumb img{width:100%;height:100%;object-fit:cover}
+.peek-edge{display:none}
+@media(min-width:769px){
+:root{--peek:clamp(56px,8vw,120px)}
+.slide{min-width:calc(100vw - var(--peek));width:calc(100vw - var(--peek))}
+.slide:last-child{min-width:100vw;width:100vw}
+.peek-edge{display:block;position:absolute;left:10px;top:72px;bottom:72px;width:calc(var(--peek) - 10px);transition:opacity .35s;z-index:5;pointer-events:none}
+
+.peek-edge span{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%) rotate(180deg);writing-mode:vertical-rl;white-space:nowrap;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.peek-edge.pe-dark span{color:var(--sage)}
+.slide.is-current .peek-edge{opacity:0}
+.slide.is-next .peek-edge{animation:nudge 2.4s ease-in-out infinite}
+}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+@media(prefers-reduced-motion:reduce){.peek-edge{animation:none!important}}
+@media(max-width:768px){
+html,body{overflow-y:auto;height:auto}
+.slider-container{flex-direction:column;width:100%;height:auto;overflow:visible;scroll-snap-type:none}
+.slide{width:100%;min-width:0;height:auto;min-height:100vh;padding:96px 0 100px;scroll-snap-align:none;overflow:visible}
+.slide__inner{min-height:0}
+.project__layout,.about__grid,.hero__layout{grid-template-columns:1fr;max-height:none;gap:1.75rem}
+.hero__portrait{order:-1;max-height:300px;aspect-ratio:16/10}
+.about__portrait{max-height:300px;aspect-ratio:16/10}
+.project__visual{height:auto;aspect-ratio:4/3;min-height:0}
+.project__visual::after{display:none}
+.project__meta-row{flex-wrap:wrap;gap:1rem 2rem}
+.nav__links{gap:.9rem}.brand__sub,.nav-arrows{display:none}.slide-counter{min-width:0}
+.reveal{opacity:1;transform:none;transition:none}
+.cs-bg-image{bottom:auto;height:44vh;height:44dvh}
+.cs-content-box{display:flex;flex-direction:column;bottom:0;left:0;right:0;width:auto;max-height:58vh;max-height:58dvh;padding:1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom,0px));border-radius:20px 20px 0 0}
+.cs-gallery-thumbs{order:-1;margin:0 0 1rem;padding:0 0 1rem;border-top:0;border-bottom:1px solid var(--line)}
+.cs-thumb{width:56px;height:42px}
+.cs-title{font-size:1.5rem}
+.cs-cap{top:auto;bottom:calc(58vh + .75rem);bottom:calc(58dvh + .75rem);left:1rem}
+.cs-close-btn{top:1rem;right:1rem}
+.cs-toggle{right:7.4rem}
+.cs-overlay.is-clean .cs-bg-image{height:100vh;height:100dvh}
+.cs-nav{bottom:calc(1.5rem + env(safe-area-inset-bottom,0px))}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+/* ===== TYPOGRAPHY LAYER: Instrument Serif (display) / Instrument Sans (text) / DM Mono (labels) ===== */
+:root{--font:'Instrument Sans',system-ui,-apple-system,sans-serif;--serif:'Instrument Serif',Georgia,'Times New Roman',serif;--mono:'DM Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+body{font-feature-settings:"kern","liga";letter-spacing:-.003em}
+/* Display: large, light, tightly set serif with italic emphasis */
+.hero__title,.project__title,.about__title,.contact__title,.cs-title,.brand,.hero__role,.project__tagline,.contact__email{font-family:var(--serif);font-weight:400}
+.hero__title{font-size:clamp(3.5rem,9vw,8rem);letter-spacing:-.035em;line-height:.88}
+.project__title{font-size:clamp(2.75rem,5vw,4.6rem);letter-spacing:-.03em;line-height:.95}
+.about__title{font-size:clamp(2.25rem,4.2vw,3.75rem);letter-spacing:-.025em;line-height:1.02}
+.contact__title{font-size:clamp(3rem,7.5vw,6.5rem);letter-spacing:-.035em;line-height:.93}
+.cs-title{font-size:2.25rem;letter-spacing:-.02em;line-height:1}
+em{font-style:italic;color:var(--accent)}
+.contact__title em{color:var(--sage)}
+.brand{font-size:1.5rem;letter-spacing:-.01em;line-height:.9}
+.brand>span:first-child{line-height:.9}
+.hero__role{font-family:var(--font);font-weight:600;font-size:1.3rem;line-height:1.25;letter-spacing:-.01em}
+.project__tagline{font-family:var(--font);font-weight:600;font-size:clamp(1.15rem,1.5vw,1.3rem);font-style:normal;line-height:1.35;letter-spacing:-.01em;color:var(--ink)}
+.contact__email{font-family:var(--font);font-weight:500;font-style:normal;font-size:clamp(1.25rem,3vw,2rem);letter-spacing:-.015em}
+/* Labels: small uppercase mono */
+.eyebrow,.nav__link,.tag,.project__visual-badge,.meta-item dt,.cs-meta-grid dt,.cs-badge,.cs-section h4,.cs-cap,.slide-counter,.slide-counter__title,.peek-edge span,.footer-meta,.about__skill-chip,.brand__sub,.hero__role span,.project__visual::after,.btn,.cs-close-btn{font-family:var(--mono);font-weight:400;text-transform:uppercase;letter-spacing:.08em}
+.nav__link{font-size:.6875rem}
+.tag,.project__visual-badge,.cs-badge,.cs-cap{font-size:.625rem}
+.meta-item dt,.cs-meta-grid dt,.cs-section h4,.brand__sub,.eyebrow{font-size:.6875rem;letter-spacing:.1em}
+.hero__role span{font-size:.6875rem;margin-top:.75rem;color:var(--muted);letter-spacing:.1em}
+.slide-counter{font-size:.75rem;font-weight:500}.slide-counter__title{font-size:.6875rem}
+.peek-edge span{font-size:.6875rem;letter-spacing:.16em}
+.btn,.cs-close-btn{font-size:.6875rem;font-weight:500;letter-spacing:.1em}
+.about__skill-chip{font-size:.6875rem;letter-spacing:.06em;font-weight:400}
+.footer-meta{font-size:.6875rem}
+/* Text: clean humanist sans at relaxed sizes */
+.hero__desc,.project__summary,.about__text,.contact__text,.cs-lede,.cs-section p,.cs-list li,.meta-item dd,.cs-meta-grid dd{font-family:var(--font);font-weight:400}
+.hero__desc{font-size:1.0625rem;line-height:1.65}
+.project__summary{font-size:1rem;line-height:1.7}
+.about__text{font-size:1.125rem;line-height:1.65}
+.contact__text{font-size:1.2rem;line-height:1.6}
+.cs-lede{font-family:var(--font);font-weight:600;font-style:normal;font-size:1rem;line-height:1.4;letter-spacing:-.005em;color:var(--slate)}
+.cs-section p,.cs-list li{font-size:.9rem;line-height:1.65}
+.meta-item dd,.cs-meta-grid dd{font-weight:500}
+@media(max-width:768px){.cs-title{font-size:1.9rem}.hero__title{font-size:clamp(3.25rem,15vw,4.5rem)}}
+/* ===== MOBILE: project cards on one soft background + scroll-in motion ===== */
+@media(max-width:768px){
+.slide--project{min-height:0;padding:.6rem 0}
+#slide-1{padding-top:1.4rem}
+#slide-4{padding-bottom:1.4rem}
+.slide--hero{background:linear-gradient(to bottom,var(--bg) calc(100% - 220px),var(--soft) 100%)}
+.slide--project .slide__inner{flex:1;width:auto;min-width:0;max-width:none;margin-inline:.75rem;padding:.75rem .75rem 1.6rem;background:var(--bg);border-radius:28px;box-shadow:0 22px 44px -26px rgba(47,62,70,.4)}
+.slide--project .project__layout{gap:1.25rem}
+.slide--project .project__visual{border-radius:20px;box-shadow:none}
+.slide--project .project__layout>div:last-child{padding:0 .5rem}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease),transform .75s var(--ease);transition-delay:calc(var(--i,0)*70ms)}
+.slide.is-current .reveal:not(.in){opacity:0;transform:translateY(28px)}
+.slide .reveal.in{opacity:1;transform:none}
+}
+@media(max-width:768px) and (prefers-reduced-motion:reduce){.reveal,.slide.is-current .reveal:not(.in){opacity:1;transform:none}}
+/* ===== MENU BUTTON (very narrow screens) ===== */
+.menu-btn,.menu-panel{display:none}
+@media(max-width:640px){
+.nav__links{display:none}
+.brand>span:first-child{white-space:nowrap}
+.menu-btn{display:flex;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);align-items:center;justify-content:center;background:var(--bg);transition:transform .5s var(--ease),background .25s,color .25s}
+.menu-btn svg{width:20px;height:20px}
+.menu-btn:hover,.menu-btn:active{background:var(--ink);color:var(--bg);transform:rotate(90deg)}
+.menu-panel{display:flex;flex-direction:column;position:fixed;inset:0;z-index:60;background:var(--slate);color:#fff;padding:0 var(--pad) calc(1.5rem + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.menu-panel.is-open{opacity:1;visibility:visible}
+.menu-top{height:72px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.menu-top .brand{color:#fff}
+.menu-top .menu-btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.menu-top .menu-btn:hover,.menu-top .menu-btn:active{background:#fff;color:var(--slate)}
+.menu-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:.35rem}
+.menu-link{display:flex;align-items:baseline;gap:1rem;font-family:var(--serif);font-weight:400;font-size:clamp(3.25rem,16vw,4.75rem);line-height:1.05;letter-spacing:-.03em;text-align:left;color:#fff;opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease),color .25s;transition-delay:calc(var(--n)*70ms + 120ms)}
+.menu-panel.is-open .menu-link{opacity:1;transform:none}
+.menu-link small{font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;color:var(--sage);min-width:1.6rem}
+.menu-link.is-active{font-style:italic;color:var(--sage)}
+.menu-foot{font-family:var(--mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.8;color:var(--sage);opacity:.85}
 }
 </style>
 </head>
 <body>
 
 <header class="header">
-  <div class="brand">
-    <span>David Latham</span>
-    <span class="brand__sub">Graphic Designer</span>
-  </div>
+  <div class="brand"><span>David Latham</span><span class="brand__sub">Graphic Designer</span></div>
   <nav class="nav__links" aria-label="Main Navigation">
     <button class="nav__link is-active" data-slide-to="0">Home</button>
     <button class="nav__link" data-slide-to="1">Work</button>
     <button class="nav__link" data-slide-to="5">About</button>
     <button class="nav__link" data-slide-to="6">Contact</button>
   </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></button>
 </header>
+
+<div class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-top">
+    <div class="brand"><span>David Latham</span></div>
+    <button class="menu-btn" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></button>
+  </div>
+  <nav class="menu-links" aria-label="Menu">
+    <button class="menu-link" data-slide-to="0" style="--n:0"><small>01</small>Home</button>
+    <button class="menu-link" data-slide-to="1" style="--n:1"><small>02</small>Work</button>
+    <button class="menu-link" data-slide-to="5" style="--n:2"><small>03</small>About</button>
+    <button class="menu-link" data-slide-to="6" style="--n:3"><small>04</small>Contact</button>
+  </nav>
+  <p class="menu-foot">Graphic designer &amp; digital content creator<br>Redcar, UK</p>
+</div>
 
 <main class="slider-container" id="sliderTrack">
 
-  <!-- SLIDE 0: HERO -->
   <section class="slide slide--hero" id="slide-0">
     <div class="slide__inner">
-      <div class="hero__content">
-        <h1 class="hero__title">David Latham</h1>
-        <div class="hero__grid">
-          <div class="hero__role">
-            Graphic designer
-            <span>Brand identity, print and web</span>
-          </div>
-          <p class="hero__desc">
-            I design brand identities, print and websites for community organisations and charities, turning complex briefs into clear, accessible visual communication.
-          </p>
-          <div class="hero__action">
-            <button class="btn" data-slide-to="1">
-              <span>View Selected Work</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+      <div class="hero__layout">
+        <div>
+          <p class="eyebrow reveal">Redcar, North East England</p>
+          <h1 class="hero__title reveal" style="--i:1">David <em>Latham</em></h1>
+          <div class="hero__grid reveal" style="--i:2">
+            <div class="hero__role">Graphic designer &amp; digital content creator<span>Brand identity, print, signage and web</span></div>
+            <p class="hero__desc">I design brand identities, print and websites for community organisations and charities, turning complex briefs into clear, accessible visual communication.</p>
+            <div><button class="btn" data-slide-to="1"><span>View Selected Work</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
           </div>
         </div>
+        <div class="hero__portrait reveal" style="--i:2"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="Portrait of David Latham"></div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 1: Warm & Well -->
-  <section class="slide slide--project" id="slide-1">
-    <div class="slide__inner">
-      <div class="project__layout">
-        <div class="project__visual" onclick="openDrawer('warm-and-well')">
-          <span class="project__visual-badge">01 / Featured Project</span>
-          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Warm & Well Campaign" id="img-warm-well">
-        </div>
-        <div class="project__details">
-          <div class="tags">
-            <span class="tag">Campaign Design</span>
-            <span class="tag">Print</span>
-            <span class="tag">2021 - Present</span>
-          </div>
-          <h2 class="project__title">Warm & Well</h2>
-          <p class="project__tagline">Print campaigns that make complex information easy to act on.</p>
-          <p class="project__summary">
-            Clear, empathetic print communications for an Ofgem-funded initiative supporting vulnerable households across partner networks.
-          </p>
-          <div class="project__meta-row">
-            <div class="meta-item">
-              <dt>Client</dt>
-              <dd>Redcar Baptist Church</dd>
-            </div>
-            <div class="meta-item">
-              <dt>Role</dt>
-              <dd>Design Lead</dd>
-            </div>
-          </div>
-          <div>
-            <button class="btn" onclick="openDrawer('warm-and-well')">
-              <span>Explore Case Study</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Project slides 1-4 are generated from the data below -->
 
-  <!-- SLIDE 2: Common Ground Coffee Shop -->
-  <section class="slide slide--project" id="slide-2">
-    <div class="slide__inner">
-      <div class="project__layout">
-        <div class="project__visual" onclick="openDrawer('common-ground')">
-          <span class="project__visual-badge">02 / Identity & Signage</span>
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80" alt="Common Ground Coffee Shop" id="img-common-ground">
-        </div>
-        <div class="project__details">
-          <div class="tags">
-            <span class="tag">Brand Identity</span>
-            <span class="tag">Signage</span>
-            <span class="tag">2021 - Present</span>
-          </div>
-          <h2 class="project__title">Common Ground</h2>
-          <p class="project__tagline">A community coffee shop, designed from logo to floor plan.</p>
-          <p class="project__summary">
-            The complete visual identity for a new community coffee shop, encompassing signage, print menus, promotional posters and physical spatial layout.
-          </p>
-          <div class="project__meta-row">
-            <div class="meta-item">
-              <dt>Client</dt>
-              <dd>Common Ground</dd>
-            </div>
-            <div class="meta-item">
-              <dt>Role</dt>
-              <dd>Sole Designer</dd>
-            </div>
-          </div>
-          <div>
-            <button class="btn" onclick="openDrawer('common-ground')">
-              <span>Explore Case Study</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 3: Welcome Project -->
-  <section class="slide slide--project" id="slide-3">
-    <div class="slide__inner">
-      <div class="project__layout">
-        <div class="project__visual" onclick="openDrawer('welcome-project')">
-          <span class="project__visual-badge">03 / Accessible Design</span>
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Welcome Project Design" id="img-welcome-project">
-        </div>
-        <div class="project__details">
-          <div class="tags">
-            <span class="tag">Print Design</span>
-            <span class="tag">Accessible Web</span>
-            <span class="tag">2021 - Present</span>
-          </div>
-          <h2 class="project__title">Welcome Project</h2>
-          <p class="project__tagline">Clear design for people reading in a second language.</p>
-          <p class="project__summary">
-            Accessible, culturally sensitive print resources and intuitive digital interfaces for refugee and asylum seeker support networks.
-          </p>
-          <div class="project__meta-row">
-            <div class="meta-item">
-              <dt>Client</dt>
-              <dd>Welcome Project</dd>
-            </div>
-            <div class="meta-item">
-              <dt>Role</dt>
-              <dd>Designer & Builder</dd>
-            </div>
-          </div>
-          <div>
-            <button class="btn" onclick="openDrawer('welcome-project')">
-              <span>Explore Case Study</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 4: Indigo English -->
-  <section class="slide slide--project" id="slide-4">
-    <div class="slide__inner">
-      <div class="project__layout">
-        <div class="project__visual" onclick="openDrawer('indigo-english')">
-          <span class="project__visual-badge">04 / Educational Brand</span>
-          <img src="images/Indigo Logo wide.png" alt="Indigo English Identity" id="img-indigo-english">        
-        </div>
-        <div class="project__details">
-          <div class="tags">
-            <span class="tag">Brand Identity</span>
-            <span class="tag">Educational Toolkits</span>
-            <span class="tag">2018 - 2021</span>
-          </div>
-          <h2 class="project__title">Indigo English</h2>
-          <p class="project__tagline">A digital brand and set of visual toolkits built from scratch.</p>
-          <p class="project__summary">
-            An independent digital learning brand featuring structured visual frameworks curated and featured on the Miro whiteboarding platform.
-          </p>
-          <div class="project__meta-row">
-            <div class="meta-item">
-              <dt>Client</dt>
-              <dd>Indigo English</dd>
-            </div>
-            <div class="meta-item">
-              <dt>Role</dt>
-              <dd>Founder & Designer</dd>
-            </div>
-          </div>
-          <div>
-            <button class="btn" onclick="openDrawer('indigo-english')">
-              <span>Explore Case Study</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 5: ABOUT -->
   <section class="slide slide--about" id="slide-5">
     <div class="slide__inner">
       <div class="about__grid">
-        <div class="about__portrait">
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="David Latham" id="portrait-img">
-        </div>
+        <div class="about__portrait reveal"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" alt="David Latham"></div>
         <div>
-          <h2 class="about__title">I turn complicated briefs into clear, accessible design.</h2>
-          <p class="about__text">
-            I’m David, a designer based in Redcar, North East England. Since 2021 I’ve been creating brand identities, signage, and accessible print resources for community initiatives and charities.
-          </p>
-          <p class="about__text">
-            I start with who the audience is and what they need to do next, ensuring visual clarity, strong hierarchy, and genuine accessibility across print and digital touchpoints.
-          </p>
-          <div class="about__skills">
-            <span class="about__skill-chip">Brand Identity</span>
-            <span class="about__skill-chip">Print & Typography</span>
-            <span class="about__skill-chip">Signage & Environment</span>
-            <span class="about__skill-chip">No-Code Web</span>
-            <span class="about__skill-chip">Adobe Creative Cloud</span>
+          <h2 class="about__title reveal" style="--i:1">I turn complicated briefs into <em>clear, accessible design.</em></h2>
+          <p class="about__text reveal" style="--i:2">I'm David, a designer and digital content creator based in Redcar. My route in was unusual: a politics degree, then years teaching English and building online learning, before design became the day job. That background shapes how I work: start with who the audience is and what they need to do next.</p>
+          <p class="about__text reveal" style="--i:3">Since 2021 I've been Creative Project Lead at Redcar Baptist Church, the sole designer behind Common Ground, the Welcome Project and Warm &amp; Well. I also volunteer as creative director at East Cleveland Baptist Church, producing identity and live stream graphics.</p>
+          <div class="about__skills reveal" style="--i:4">
+            <span class="about__skill-chip">Brand Identity</span><span class="about__skill-chip">Print &amp; Typography</span><span class="about__skill-chip">Signage &amp; Environment</span><span class="about__skill-chip">Accessible Web</span><span class="about__skill-chip">Video (Descript)</span><span class="about__skill-chip">Mailchimp &amp; Meta Business Suite</span><span class="about__skill-chip">Brand Governance</span><span class="about__skill-chip">Adobe CC &amp; Affinity</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SLIDE 6: CONTACT -->
   <section class="slide slide--contact" id="slide-6">
     <div class="slide__inner">
       <div class="contact__content">
-        <h2 class="contact__title">Have something worth making?</h2>
-        <p class="contact__text">
-          I’m looking for design roles and happy to talk about new projects. Tell me about the brief, audience, and timeline.
-        </p>
-        <p style="margin-bottom: 2rem;">
-          <a href="mailto:davidjosiahlatham@gmail.com" class="contact__email">davidjosiahlatham@gmail.com</a>
-        </p>
-        <div style="margin-top: 1.5rem;">
-          <a href="mailto:davidjosiahlatham@gmail.com" class="btn" style="background: #FFF; color: var(--ink);">
-            <span>Send An Email</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="footer-meta">
-          &copy; 2026 David Latham. All rights reserved. Based in Redcar, UK.
-        </div>
+        <h2 class="contact__title reveal">Have something <em>worth making?</em></h2>
+        <p class="contact__text reveal" style="--i:1">I'm looking for design roles and happy to talk about new projects. Tell me about the brief, audience and timeline.</p>
+        <p class="reveal" style="--i:2"><a href="mailto:davidjosiahlatham@gmail.com" class="contact__email">davidjosiahlatham@gmail.com</a></p>
+        <div class="reveal" style="--i:3"><a href="mailto:davidjosiahlatham@gmail.com" class="btn btn--light"><span>Send An Email</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        <div class="footer-meta">&copy; 2026 David Latham. All rights reserved. Based in Redcar, UK.</div>
       </div>
     </div>
   </section>
-
 </main>
 
 <div class="controls-bar">
-  <div class="slide-counter">
-    <span id="counterNum">01 / 07</span>
-    <span class="slide-counter__title" id="counterTitle">— Intro</span>
-  </div>
-
-  <div class="slide-dots" id="dotsContainer">
-    <button class="dot is-active" data-slide-to="0" aria-label="Slide 1"></button>
-    <button class="dot" data-slide-to="1" aria-label="Slide 2"></button>
-    <button class="dot" data-slide-to="2" aria-label="Slide 3"></button>
-    <button class="dot" data-slide-to="3" aria-label="Slide 4"></button>
-    <button class="dot" data-slide-to="4" aria-label="Slide 5"></button>
-    <button class="dot" data-slide-to="5" aria-label="Slide 6"></button>
-    <button class="dot" data-slide-to="6" aria-label="Slide 7"></button>
-  </div>
-
+  <div class="progress" id="progress"></div>
+  <div class="slide-counter"><span id="counterNum">01 / 07</span><span class="slide-counter__title" id="counterTitle">— Intro</span></div>
+  <div class="slide-dots" id="dotsContainer"></div>
   <div class="nav-arrows">
-    <button class="arrow-btn" id="prevBtn" aria-label="Previous Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 19l-7-7 7-7"/></svg>
-    </button>
-    <button class="arrow-btn" id="nextBtn" aria-label="Next Slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7"/></svg>
-    </button>
+    <button class="arrow-btn" id="prevBtn" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M15 19l-7-7 7-7"/></svg></button>
+    <button class="arrow-btn" id="nextBtn" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
 </div>
 
-<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
-<aside class="drawer" id="caseDrawer" role="dialog" aria-modal="true" aria-label="Case Study Drawer">
-  <div class="drawer__header">
-    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">Project Case Study</span>
-    <button class="drawer__close-btn" onclick="closeDrawer()">
-      <span>Close</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-  <div class="drawer__body" id="drawerContent">
-    <!-- Dynamic Drawer Content populated by JS -->
-  </div>
-</aside>
+<div class="cs-overlay" id="caseOverlay" role="dialog" aria-modal="true" aria-label="Case study">
+  <img src="" alt="" class="cs-bg-image" id="csBgImage">
+  <span class="cs-cap" id="csCap"></span>
+  <button class="cs-close-btn" id="csClose"><span>Close</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <button class="cs-close-btn cs-toggle" id="csToggle" aria-pressed="false"><span>Hide text</span></button>
+  <div class="cs-nav"><button id="csPrev" aria-label="Previous image">&larr;</button><button id="csNext" aria-label="Next image">&rarr;</button></div>
+  <div class="cs-content-box" id="csBox"></div>
+</div>
 
 <script>
-(function() {
-  'use strict';
+(function(){
+'use strict';
+/* Local placeholder art (no network needed). Swap U() for real image URLs when ready. */
+var PAL=[['#cad2c5','#52796f'],['#52796f','#2f3e46'],['#84a98c','#354f52'],['#cad2c5','#2f3e46'],['#a3b18a','#3a5a40']];
+var U=function(id){
+  var h=0,k;for(k=0;k<id.length;k++)h=(h*31+id.charCodeAt(k))>>>0;
+  var c=PAL[h%PAL.length],r=function(n,m){return (h>>>n)%m;};
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="1600" height="1000" fill="url(#g)"/>'+
+  '<circle cx="'+(300+r(3,1000))+'" cy="'+(150+r(5,500))+'" r="'+(220+r(7,200))+'" fill="#fff" opacity=".14"/>'+
+  '<circle cx="'+(900+r(2,600))+'" cy="'+(500+r(4,400))+'" r="'+(160+r(6,160))+'" fill="#2f3e46" opacity=".16"/>'+
+  '<rect x="'+(100+r(1,500))+'" y="'+(560+r(8,250))+'" width="520" height="260" rx="40" fill="#fff" opacity=".12" transform="rotate(-8 400 700)"/>'+
+  '<text x="800" y="520" text-anchor="middle" font-family="sans-serif" font-size="34" font-weight="700" letter-spacing="6" fill="#fff" opacity=".55">PLACEHOLDER IMAGE</text></svg>';
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+};
+[].forEach.call(document.querySelectorAll('.hero__portrait img,.about__portrait img'),function(im,n){im.src=U('portrait'+n);});
+var ARROW='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
-  /* Project Case Studies Data */
-  var projectsData = {
-    'warm-and-well': {
-      title: 'Warm & Well',
-      lede: 'Print campaigns that make complex information easy to act on.',
-      client: 'Redcar Baptist Church (Ofgem Funded)',
-      role: 'Designer and Design Lead',
-      tools: 'Adobe Creative Cloud, Affinity',
-      timeline: '2021 to present',
-      overview: 'Warm & Well is a wide-ranging support initiative for vulnerable households funded through Ofgem. I led the design strategy and produced the print campaigns.',
-      challenge: 'The initiative had several partners and complex advice to explain clearly while maintaining a supportive, warm and empathetic tone.',
-      solution: 'I turned partner briefs into clean, highly readable print materials. The resulting posters and leaflets were praised across partner networks for readability.',
-      images: [
-        { url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80', cap: 'Campaign print overview' },
-        { url: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80', cap: 'Simplified household guides' },
-        { url: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1000&q=80', cap: 'Information posters & flyers' }
-      ]
-    },
-    'common-ground': {
-      title: 'Common Ground Coffee Shop',
-      lede: 'A community coffee shop, designed from logo to floor plan.',
-      client: 'Common Ground Coffee Shop',
-      role: 'Sole Designer & Project Lead',
-      tools: 'Adobe Creative Cloud, Affinity',
-      timeline: '2021 to present',
-      overview: 'Common Ground is a vibrant community venue. I established its visual identity and design touchpoints from scratch.',
-      challenge: 'A new community space needed one unified identity across exterior signage, physical menus, posters and customer flow.',
-      solution: 'I created the brand logo, color system, directional signage and interior menu layouts, creating an inviting visual atmosphere.',
-      images: [
-        { url: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80', cap: 'Logo and visual brand system' },
-        { url: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80', cap: 'Exterior and interior signage' },
-        { url: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=1000&q=80', cap: 'Print menus and social collateral' }
-      ]
-    },
-    'welcome-project': {
-      title: 'Welcome Project',
-      lede: 'Clear, accessible design for people reading in a second language.',
-      client: 'Welcome Project',
-      role: 'Sole Designer & Web Builder',
-      tools: 'Adobe Creative Cloud, Squarespace, WordPress',
-      timeline: '2021 to present',
-      overview: 'The Welcome Project supports asylum seekers and refugees in North East England with print and digital resources.',
-      challenge: 'Many users read in a second language, requiring clear typography, visual indicators and accessible layout hierarchy.',
-      solution: 'I developed clean, easily scannable leaflets and web guides that communicate essential support services seamlessly.',
-      images: [
-        { url: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80', cap: 'Visual guidelines & graphics' },
-        { url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80', cap: 'Multilingual printed guides' },
-        { url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80', cap: 'Digital interface layout' }
-      ]
-    },
-    'indigo-english': {
-      title: 'Indigo English',
-      lede: 'A brand and set of visual toolkits built from nothing.',
-      client: 'Indigo English (Own Venture)',
-      role: 'Founder & Designer',
-      tools: 'Adobe Creative Cloud, Miro, Kajabi',
-      timeline: '2018 - 2021',
-      overview: 'Indigo English was an independent digital educational brand offering visual tools and online visual toolkits.',
-      challenge: 'Creating stand-out learning materials and corporate identity without an agency budget.',
-      solution: 'I designed vector frameworks and graphic toolkits that earned featured curation status on the Miro platform.',
-      images: [
-        { url: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80', cap: 'Brand identity & vectors' },
-        { url: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80', cap: 'Visual learning frameworks' },
-        { url: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1000&q=80', cap: 'Featured Miro toolkits' }
-      ]
-    }
-  };
+var P=[
+{id:'warm-and-well',badge:'01 / Featured Project',tags:['Campaign Design','Print','2021 - Present'],title:'Warm & Well',
+ tagline:'Print campaigns that make complex information easy to act on.',
+ summary:'Clear, empathetic print communications for an Ofgem-funded initiative supporting vulnerable households across partner networks.',
+ client:'Redcar Baptist Church',role:'Design Lead',
+ csClient:'Redcar Baptist Church (Ofgem funded)',csRole:'Designer & Design Lead',tools:'Adobe Creative Cloud, Affinity',timeline:'2021 to present',
+ overview:'Warm & Well is a support initiative for vulnerable households, funded through Ofgem. I lead the design and produce its print campaigns.',
+ challenge:'Several partners, a lot of technical energy advice, and an audience who needed to feel supported rather than lectured.',
+ solution:'I turned partner briefs into clean, highly readable posters and leaflets with a consistent, warm voice that sits comfortably alongside each partner\'s own material.',
+ impact:['Praised across partner networks for readability','One consistent look across multiple partners','Delivered as print-ready artwork for local distribution'],
+ images:[['1513694203232-719a280e022f','Campaign print overview'],['1484154218962-a197022b5858','Simplified household guides'],['1505691938895-1758d7feb511','Information posters & flyers']]},
+{id:'common-ground',badge:'02 / Identity & Signage',tags:['Brand Identity','Signage','2021 - Present'],title:'Common Ground',
+ tagline:'A community coffee shop, designed from logo to floor plan.',
+ summary:'The complete visual identity for a new community coffee shop, covering signage, print menus, promotional posters and the physical layout of the space.',
+ client:'Common Ground',role:'Sole Designer',
+ csClient:'Common Ground Coffee Shop',csRole:'Sole Designer & Project Lead',tools:'Adobe Creative Cloud, Affinity',timeline:'2021 to present',
+ overview:'Common Ground is a community coffee shop run through Redcar Baptist Church. I built its visual identity and every design touchpoint from scratch.',
+ challenge:'A brand-new space needed one identity that worked from the street to the till: outside signage, menus, posters and how people move through the room.',
+ solution:'I created the logo and colour system, interior and exterior signage, menu layouts, posters, and the floor plan and spatial layout, so the brand is something you walk through, not just look at.',
+ impact:['Identity delivered end to end by one designer','Signage, menus, posters and floor plan share one system','Still in active use and evolving'],
+ images:[['1554118811-1e0d58224f24','Logo and visual brand system'],['1501339847302-ac426a4a7cbb','Exterior and interior signage'],['1453614512568-c4024d13c247','Print menus and social collateral']]},
+{id:'welcome-project',badge:'03 / Accessible Design',tags:['Print Design','Accessible Web','2021 - Present'],title:'Welcome Project',
+ tagline:'Clear design for people reading in a second language.',
+ summary:'Accessible, culturally sensitive print resources and web guides supporting refugee and asylum seeker networks in North East England.',
+ client:'Welcome Project',role:'Designer & Builder',
+ csClient:'Welcome Project',csRole:'Sole Designer & Web Builder',tools:'Adobe Creative Cloud, Squarespace, WordPress',timeline:'2021 to present',
+ overview:'The Welcome Project supports refugees and asylum seekers across North East England. I designed the visual architecture of its print and digital guides.',
+ challenge:'Many readers use English as a second language, so typography, icons and hierarchy had to carry meaning that long paragraphs could not.',
+ solution:'I built scannable multilingual print guides and web pages with plain wording, strong hierarchy and visual cues, and kept them consistent across print and screen.',
+ impact:['Used by regional refugee support networks','Print and web share one accessible system','Multilingual layouts that stay easy to scan'],
+ images:[['1517048676732-d65bc937f952','Visual guidelines & graphics'],['1522202176988-66273c2fd55f','Multilingual printed guides'],['1523240795612-9a054b0db644','Digital interface layout']]},
+{id:'indigo-english',badge:'04 / Educational Brand',tags:['Brand Identity','Educational Toolkits','2018 - 2021'],title:'Indigo English',
+ tagline:'A digital brand and set of visual toolkits built from scratch.',
+ summary:'An independent digital learning brand with visual frameworks that earned featured curation on the Miro whiteboarding platform.',
+ client:'Indigo English',role:'Founder & Designer',
+ csClient:'Indigo English (own venture)',csRole:'Founder & Designer',tools:'Adobe Creative Cloud, Miro, Kajabi',timeline:'2018 - 2021',
+ overview:'Indigo English was my own digital learning business, grown out of years as an English teacher. I designed the brand and every resource in it.',
+ challenge:'Standing out in a crowded online education space with no agency budget and no existing audience.',
+ solution:'I designed vector graphics and structured visual frameworks for online lessons, then shared them as toolkits that people could use directly on Miro.',
+ impact:['Toolkits featured and curated on Miro','Brand, resources and storefront all designed in-house','Foundation for my move into full-time design'],
+ images:[['1503676260728-1c00da094a0b','Brand identity & vectors'],['1434030216411-0b793f4b4173','Visual learning frameworks'],['1513258496099-48168024aec0','Featured Miro toolkits']]}
+];
 
-  /* Slide Metadata Titles */
-  var slideInfo = [
-    { num: '01 / 07', title: '— Intro' },
-    { num: '02 / 07', title: '— Warm & Well' },
-    { num: '03 / 07', title: '— Common Ground' },
-    { num: '04 / 07', title: '— Welcome Project' },
-    { num: '05 / 07', title: '— Indigo English' },
-    { num: '06 / 07', title: '— About David' },
-    { num: '07 / 07', title: '— Contact' }
-  ];
+var info=['Intro'].concat(P.map(function(p){return p.title;}),['About David','Contact']);
+var track=document.getElementById('sliderTrack'),about=document.getElementById('slide-5');
 
-  /* DOM Cache */
-  var track = document.getElementById('sliderTrack');
-  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
-  var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__link'));
-  var prevBtn = document.getElementById('prevBtn');
-  var nextBtn = document.getElementById('nextBtn');
-  var counterNum = document.getElementById('counterNum');
-  var counterTitle = document.getElementById('counterTitle');
-  var drawer = document.getElementById('caseDrawer');
-  var backdrop = document.getElementById('drawerBackdrop');
-  var drawerContent = document.getElementById('drawerContent');
+/* Build project slides */
+P.forEach(function(p,n){
+  var s=document.createElement('section');s.className='slide slide--project';s.id='slide-'+(n+1);
+  s.innerHTML='<div class="slide__inner"><div class="project__layout">'+
+  '<div class="project__visual reveal" tabindex="0" role="button" aria-label="Open '+p.title+' case study" data-cs="'+p.id+'"><span class="project__visual-badge">'+p.badge+'</span><img src="'+U(p.images[0][0],1200,80)+'" alt="'+p.title+'" loading="lazy"></div>'+
+  '<div><div class="tags reveal" style="--i:1">'+p.tags.map(function(t){return '<span class="tag">'+t+'</span>';}).join('')+'</div>'+
+  '<h2 class="project__title reveal" style="--i:2">'+p.title+'</h2><p class="project__tagline reveal" style="--i:3">'+p.tagline+'</p><p class="project__summary reveal" style="--i:3">'+p.summary+'</p>'+
+  '<dl class="project__meta-row reveal" style="--i:4"><div class="meta-item"><dt>Client</dt><dd>'+p.client+'</dd></div><div class="meta-item"><dt>Role</dt><dd>'+p.role+'</dd></div></dl>'+
+  '<div class="reveal" style="--i:5"><button class="btn" data-cs="'+p.id+'"><span>Explore Case Study</span>'+ARROW+'</button></div></div></div></div>';
+  track.insertBefore(s,about);
+});
 
-  var currentIdx = 0;
+var slides=[].slice.call(document.querySelectorAll('.slide'));
+var N=slides.length;
+var dotsC=document.getElementById('dotsContainer');
+slides.forEach(function(_,i){var d=document.createElement('button');d.className='dot';d.setAttribute('data-slide-to',i);d.setAttribute('aria-label','Go to '+info[i]);dotsC.appendChild(d);});
+var dots=[].slice.call(document.querySelectorAll('.dot')),navLinks=[].slice.call(document.querySelectorAll('.nav__link'));
+var prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn'),cNum=document.getElementById('counterNum'),cTitle=document.getElementById('counterTitle'),prog=document.getElementById('progress');
+var overlay=document.getElementById('caseOverlay'),bg=document.getElementById('csBgImage'),csBox=document.getElementById('csBox'),csCap=document.getElementById('csCap');
+var cur=0,lastFocus=null;
+var pad=function(n){return (n<10?'0':'')+n;};
 
-  function scrollToSlide(idx) {
-    if (idx < 0) idx = 0;
-    if (idx >= slides.length) idx = slides.length - 1;
-    currentIdx = idx;
+function go(i){
+  i=Math.max(0,Math.min(N-1,i));
+  if(window.innerWidth>768)track.scrollTo({left:slides[i].offsetLeft,behavior:'smooth'});
+  else slides[i].scrollIntoView({behavior:'smooth'});
+  update(i);
+}
+function update(i){
+  cur=i;
+  cNum.textContent=pad(i+1)+' / '+pad(N);cTitle.textContent='— '+info[i];
+  dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);});
+  slides.forEach(function(s,k){s.classList.toggle('is-current',k===i);s.classList.toggle('is-next',k===i+1);});
+  navLinks.forEach(function(l){var t=+l.getAttribute('data-slide-to');l.classList.toggle('is-active',t===i||(i>=1&&i<=4&&t===1));});
+  prevBtn.disabled=i===0;nextBtn.disabled=i===N-1;
+  prog.style.width=((i+1)/N*100)+'%';
+}
+/* Track the visible slide on swipe, scroll and mobile */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&window.innerWidth>768){var k=slides.indexOf(e.target);if(k!==cur)update(k);}});},{threshold:.6});
+slides.forEach(function(s){io.observe(s);});
+/* Mobile: the section crossing the middle of the screen is "current" */
+var mio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&window.innerWidth<=768){var k=slides.indexOf(e.target);if(k!==cur)update(k);}});},{rootMargin:'-50% 0px -50% 0px'});
+slides.forEach(function(s){mio.observe(s);});
+/* Scroll-in animation: each .reveal element rises in once as it enters view */
+var rio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+[].forEach.call(document.querySelectorAll('.reveal'),function(el){rio.observe(el);});
 
-    if (window.innerWidth > 768) {
-      track.scrollTo({
-        left: idx * window.innerWidth,
-        behavior: 'smooth'
-      });
-    } else {
-      slides[idx].scrollIntoView({ behavior: 'smooth' });
-    }
-
-    updateUI(idx);
+prevBtn.addEventListener('click',function(){go(cur-1);});
+nextBtn.addEventListener('click',function(){go(cur+1);});
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-slide-to]');if(t){go(+t.getAttribute('data-slide-to'));return;}
+  var c=e.target.closest('[data-cs]');if(c)openCS(c.getAttribute('data-cs'),c);
+});
+document.addEventListener('keydown',function(e){
+  if(overlay.classList.contains('is-open')){
+    if(e.key==='Escape')closeCS();
+    else if(e.key==='h'||e.key==='H')setClean(!overlay.classList.contains('is-clean'));
+    else if(e.key==='ArrowRight')stepImg(1);
+    else if(e.key==='ArrowLeft')stepImg(-1);
+    return;
   }
+  if(e.key==='Enter'&&e.target.matches('[data-cs]')){openCS(e.target.getAttribute('data-cs'),e.target);return;}
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'){if(e.key==='ArrowRight'||window.innerWidth>768){e.preventDefault();go(cur+1);}}
+  else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){if(e.key==='ArrowLeft'||window.innerWidth>768){e.preventDefault();go(cur-1);}}
+});
+window.addEventListener('resize',function(){if(window.innerWidth>768)track.scrollTo({left:slides[cur].offsetLeft,behavior:'auto'});});
 
-  function updateUI(idx) {
-    /* Update Counter */
-    if (slideInfo[idx]) {
-      counterNum.textContent = slideInfo[idx].num;
-      counterTitle.textContent = slideInfo[idx].title;
-    }
+var csP=null,csI=0,csTog=document.getElementById('csToggle');
+function setClean(on){
+  overlay.classList.toggle('is-clean',on);
+  csTog.setAttribute('aria-pressed',on);csTog.firstChild.textContent=on?'Show text':'Hide text';
+}
+function stepImg(d){if(csP)setImg(csP,(csI+d+csP.images.length)%csP.images.length);}
+function setImg(p,i){
+  csI=i;
+  [].forEach.call(csBox.querySelectorAll('.cs-thumb'),function(t,k){t.classList.toggle('is-active',k===i);});
+  bg.classList.add('is-fading');
+  setTimeout(function(){bg.src=U(p.images[i][0],1600,85);bg.alt=p.images[i][1];csCap.textContent=p.images[i][1];bg.classList.remove('is-fading');},180);
+}
+function openCS(id,from){
+  var p=P.filter(function(x){return x.id===id;})[0];if(!p)return;
+  lastFocus=from;csP=p;csI=0;setClean(false);
+  bg.src=U(p.images[0][0],1600,85);bg.alt=p.images[0][1];csCap.textContent=p.images[0][1];
+  csBox.innerHTML='<span class="cs-badge">Case Study</span><h2 class="cs-title">'+p.title+'</h2><p class="cs-lede">'+p.tagline+'</p>'+
+  '<dl class="cs-meta-grid"><div><dt>Client</dt><dd>'+p.csClient+'</dd></div><div><dt>Role</dt><dd>'+p.csRole+'</dd></div><div><dt>Tools</dt><dd>'+p.tools+'</dd></div><div><dt>Timeline</dt><dd>'+p.timeline+'</dd></div></dl>'+
+  '<div class="cs-section"><h4>Overview</h4><p>'+p.overview+'</p></div><div class="cs-section"><h4>The Challenge</h4><p>'+p.challenge+'</p></div><div class="cs-section"><h4>The Solution</h4><p>'+p.solution+'</p></div>'+
+  '<div class="cs-section"><h4>Outcomes</h4><ul class="cs-list">'+p.impact.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'+
+  '<div class="cs-gallery-thumbs">'+p.images.map(function(im,i){return '<button class="cs-thumb'+(i?'':' is-active')+'" data-i="'+i+'" aria-label="View image '+(i+1)+': '+im[1]+'"><img src="'+U(im[0],200,60)+'" alt=""></button>';}).join('')+'</div>';
+  csBox.scrollTop=0;
+  [].forEach.call(csBox.querySelectorAll('.cs-thumb'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(csBox.querySelectorAll('.cs-thumb'),function(t){t.classList.remove('is-active');});
+    b.classList.add('is-active');setImg(p,+b.getAttribute('data-i'));});});
+  overlay.classList.add('is-open');document.body.style.overflow='hidden';
+  document.getElementById('csClose').focus();
+}
+function closeCS(){
+  overlay.classList.remove('is-open');document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();
+}
+document.getElementById('csClose').addEventListener('click',closeCS);
+csTog.addEventListener('click',function(){setClean(!overlay.classList.contains('is-clean'));});
+document.getElementById('csPrev').addEventListener('click',function(){stepImg(-1);});
+document.getElementById('csNext').addEventListener('click',function(){stepImg(1);});
 
-    /* Update Dots */
-    dots.forEach(function(dot, i) {
-      if (i === idx) dot.classList.add('is-active');
-      else dot.classList.remove('is-active');
-    });
+/* Menu button + full-screen menu (very narrow screens) */
+var menuBtn=document.getElementById('menuBtn'),menuPanel=document.getElementById('menuPanel'),menuLinks=[].slice.call(document.querySelectorAll('.menu-link'));
+function openMenu(){
+  menuLinks.forEach(function(l){var t=+l.getAttribute('data-slide-to');l.classList.toggle('is-active',t===cur||(cur>=1&&cur<=4&&t===1));});
+  menuPanel.classList.add('is-open');menuPanel.setAttribute('aria-hidden','false');menuBtn.setAttribute('aria-expanded','true');
+  document.body.style.overflow='hidden';document.getElementById('menuClose').focus();
+}
+function closeMenu(){
+  if(!menuPanel.classList.contains('is-open'))return;
+  menuPanel.classList.remove('is-open');menuPanel.setAttribute('aria-hidden','true');menuBtn.setAttribute('aria-expanded','false');
+  document.body.style.overflow='';menuBtn.focus();
+}
+menuBtn.addEventListener('click',openMenu);
+document.getElementById('menuClose').addEventListener('click',closeMenu);
+menuPanel.addEventListener('click',function(e){if(e.target.closest('.menu-link'))closeMenu();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+window.addEventListener('resize',function(){if(window.innerWidth>640)closeMenu();});
 
-    /* Update Header Nav Links active state */
-    navLinks.forEach(function(link) {
-      var target = parseInt(link.getAttribute('data-slide-to'), 10);
-      if (target === idx || (idx >= 1 && idx <= 4 && target === 1)) {
-        link.classList.add('is-active');
-      } else {
-        link.classList.remove('is-active');
-      }
-    });
+/* Peek strips: a sliver of each slide shows at the right edge of the one before */
+slides.forEach(function(s,i){
+  if(!i)return;
+  var isP=i<=P.length,e=document.createElement('div');
+  e.className='peek-edge'+(i===N-1?' pe-dark':'');
+  e.setAttribute('aria-hidden','true');
+  e.innerHTML='<span>'+(isP?pad(i)+' — ':'')+info[i]+'</span>';
+  s.appendChild(e);
+});
 
-    /* Arrows state */
-    prevBtn.disabled = (idx === 0);
-    nextBtn.disabled = (idx === slides.length - 1);
-  }
+/* Vertical wheel moves horizontally on desktop */
+var wheelLock=false;
+track.addEventListener('wheel',function(e){
+  if(window.innerWidth<=768||overlay.classList.contains('is-open'))return;
+  if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
+  var s=slides[cur];
+  if(s.scrollHeight>s.clientHeight+2&&((e.deltaY>0&&s.scrollTop+s.clientHeight<s.scrollHeight-2)||(e.deltaY<0&&s.scrollTop>2)))return;
+  e.preventDefault();
+  if(wheelLock||Math.abs(e.deltaY)<8)return;
+  wheelLock=true;go(cur+(e.deltaY>0?1:-1));
+  setTimeout(function(){wheelLock=false;},800);
+},{passive:false});
 
-  /* Scroll event listener to track active slide on scroll/swipe */
-  var isScrollingTimer;
-  track.addEventListener('scroll', function() {
-    clearTimeout(isScrollingTimer);
-    isScrollingTimer = setTimeout(function() {
-      if (window.innerWidth > 768) {
-        var idx = Math.round(track.scrollLeft / window.innerWidth);
-        if (idx !== currentIdx && idx >= 0 && idx < slides.length) {
-          currentIdx = idx;
-          updateUI(idx);
-        }
-      }
-    }, 60);
-  }, { passive: true });
-
-  /* Button Click Handlers */
-  prevBtn.addEventListener('click', function() { scrollToSlide(currentIdx - 1); });
-  nextBtn.addEventListener('click', function() { scrollToSlide(currentIdx + 1); });
-
-  document.querySelectorAll('[data-slide-to]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var target = parseInt(el.getAttribute('data-slide-to'), 10);
-      scrollToSlide(target);
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (drawer.classList.contains('is-open')) {
-      if (e.key === 'Escape') closeDrawer();
-      return;
-    }
-
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      scrollToSlide(currentIdx + 1);
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      scrollToSlide(currentIdx - 1);
-    }
-  });
-
-  window.openDrawer = function(projectId) {
-    var data = projectsData[projectId];
-    if (!data) return;
-
-    var galleryHTML = data.images.map(function(img) {
-      return '<figure><img src="' + img.url + '" alt="' + img.cap + '"><figcaption>' + img.cap + '</figcaption></figure>';
-    }).join('');
-
-    drawerContent.innerHTML =
-      '<h2 class="drawer__title">' + data.title + '</h2>' +
-      '<p class="drawer__lede">' + data.lede + '</p>' +
-      '<dl class="drawer__meta-grid">' +
-        '<div><dt>Client</dt><dd>' + data.client + '</dd></div>' +
-        '<div><dt>Role</dt><dd>' + data.role + '</dd></div>' +
-        '<div><dt>Tools</dt><dd>' + data.tools + '</dd></div>' +
-        '<div><dt>Timeline</dt><dd>' + data.timeline + '</dd></div>' +
-      '</dl>' +
-      '<div class="drawer__sections">' +
-        '<div class="drawer__section"><h4>Project Overview</h4><p>' + data.overview + '</p></div>' +
-        '<div class="drawer__section"><h4>The Challenge</h4><p>' + data.challenge + '</p></div>' +
-        '<div class="drawer__section"><h4>The Solution</h4><p>' + data.solution + '</p></div>' +
-      '</div>' +
-      '<div class="drawer__gallery">' + galleryHTML + '</div>';
-
-    drawer.classList.add('is-open');
-    backdrop.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  window.closeDrawer = function() {
-    drawer.classList.remove('is-open');
-    backdrop.classList.remove('is-open');
-    document.body.style.overflow = '';
-  };
-
-  /* Initialize First Slide UI */
-  updateUI(0);
+update(0);
 })();
 </script>
 </body>
